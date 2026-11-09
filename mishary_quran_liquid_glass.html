@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#17132e">
+<meta name="description" content="Listen to Quran recitations by Sheikh Mishary Rashid Alafasy.">
+<title>Mishary Quran | Mishary Rashid Alafasy</title>
+<style>
+:root{color-scheme:dark;--fg:#fff;--muted:rgba(255,255,255,.69);--glass:rgba(255,255,255,.105);--line:rgba(255,255,255,.25);--accent:#ff7fae;--shadow:0 30px 90px rgba(9,5,28,.35)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:26px 16px;color:var(--fg);font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif;background:#17132e;overflow-x:hidden;transition:background .35s,color .35s}
+body:before,body:after{content:"";position:fixed;inset:-20%;z-index:-2;pointer-events:none;filter:blur(38px)}
+body:before{background:radial-gradient(ellipse at 18% 18%,#5a51a8 0,transparent 38%),radial-gradient(ellipse at 82% 25%,#a64e9a 0,transparent 34%),radial-gradient(ellipse at 45% 75%,#292b73 0,transparent 42%),linear-gradient(135deg,#211a48,#492d69 52%,#111a3b)}
+body:after{z-index:-1;opacity:.52;background:radial-gradient(ellipse at 50% 45%,transparent 20%,#08091d 100%)}
+button,select,input{font:inherit}button{color:inherit}
+.app{width:min(100%,690px);min-height:min(1450px,calc(100vh - 52px));padding:clamp(22px,5vw,48px);border:1px solid rgba(255,255,255,.34);border-radius:38px;background:linear-gradient(145deg,rgba(255,255,255,.18),rgba(255,255,255,.055) 45%,rgba(255,255,255,.09));box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.28);backdrop-filter:blur(34px) saturate(155%);-webkit-backdrop-filter:blur(34px) saturate(155%);position:relative;overflow:hidden}
+.app:before{content:"";position:absolute;inset:0;pointer-events:none;border-radius:inherit;background:linear-gradient(120deg,rgba(255,255,255,.13),transparent 25%,transparent 72%,rgba(255,255,255,.09));}
+.topbar{position:relative;display:grid;grid-template-columns:44px 1fr 44px;align-items:center;text-align:center;margin-bottom:28px}
+.topbar .label{font-size:1.02rem;letter-spacing:.02em;color:rgba(255,255,255,.88)}
+.icon-btn{width:42px;height:42px;display:grid;place-items:center;border:1px solid transparent;border-radius:50%;background:transparent;cursor:pointer;color:var(--fg);transition:.2s}
+.icon-btn:hover,.icon-btn.active{background:rgba(255,255,255,.15);border-color:var(--line)}
+.icon-btn svg{width:21px;height:21px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.brand{position:relative;text-align:center;margin:0 0 24px}
+.brand-mark{display:inline-flex;align-items:center;gap:9px;font-family:Georgia,serif;font-size:1.02rem;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.83)}
+.brand-mark span{color:#f6c9dc;font-size:1.25rem}
+.cover{position:relative;width:min(100%,500px);aspect-ratio:1/1;margin:0 auto 25px;border-radius:30px;overflow:hidden;border:1px solid rgba(255,255,255,.35);box-shadow:0 22px 50px rgba(10,7,30,.35),inset 0 1px 0 rgba(255,255,255,.4);background:linear-gradient(155deg,#7868b5,#c17cb6 44%,#f2a5ae 65%,#3c477c)}
+.cover:before{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 50% 22%,rgba(255,218,235,.72),transparent 36%),linear-gradient(180deg,transparent 44%,rgba(22,23,62,.1) 58%,rgba(13,18,51,.78) 100%)}
+.cover:after{content:"";position:absolute;left:-10%;right:-10%;bottom:12%;height:28%;border-radius:50% 50% 0 0;background:linear-gradient(180deg,rgba(41,43,92,.2),rgba(15,23,57,.86));filter:blur(1px)}
+.cover-glow{position:absolute;width:45%;height:45%;border-radius:50%;top:13%;left:28%;background:rgba(255,211,231,.26);filter:blur(38px)}
+.arch{position:absolute;z-index:1;inset:12% 17% 9%;border:1px solid rgba(255,255,255,.5);border-bottom:0;border-radius:48% 48% 8px 8px / 32% 32% 8px 8px;box-shadow:inset 0 0 40px rgba(255,255,255,.12),0 0 40px rgba(255,255,255,.12)}
+.arch:before{content:"۞";position:absolute;top:15%;left:50%;transform:translateX(-50%);font-size:clamp(3.5rem,13vw,6.5rem);color:rgba(255,255,255,.83);text-shadow:0 4px 30px rgba(255,255,255,.45)}
+.arch:after{content:"الْقُرْآنُ الْكَرِيم";position:absolute;top:54%;left:0;right:0;text-align:center;font-family:Georgia,serif;font-size:clamp(1rem,3.6vw,1.55rem);color:#fff;text-shadow:0 2px 15px #312451}
+.cover-caption{position:absolute;z-index:2;bottom:9%;left:0;right:0;text-align:center;color:rgba(255,255,255,.85);font-size:.72rem;letter-spacing:.28em;text-transform:uppercase}
+.heart{position:absolute;z-index:3;right:18px;bottom:18px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.15);backdrop-filter:blur(14px);display:grid;place-items:center;cursor:pointer}
+.heart svg{width:21px;stroke:#fff;fill:transparent;stroke-width:1.8}.heart.saved svg{fill:#ff648d;stroke:#ff648d}
+.track-info{text-align:center;position:relative}
+.track-info h1{font-size:clamp(1.55rem,5vw,2.15rem);margin:0 0 6px;font-weight:650;letter-spacing:-.035em}
+.track-info .reciter{font-size:1.03rem;color:var(--muted);margin:0}
+.track-info .arabic-name{font-family:Georgia,serif;font-size:1.28rem;color:#f7d8e8;margin-top:10px}
+.selector-wrap{display:flex;justify-content:center;gap:10px;margin:20px auto 5px;flex-wrap:wrap}
+select{appearance:none;max-width:100%;min-width:190px;padding:11px 40px 11px 14px;border-radius:14px;border:1px solid var(--line);background:rgba(255,255,255,.12);color:#fff;outline:none;backdrop-filter:blur(12px)}
+select option{background:#272044;color:#fff}
+.select-shell{position:relative}.select-shell:after{content:"⌄";position:absolute;right:15px;top:7px;pointer-events:none;color:#fff;font-size:1.2rem}
+.progress-area{margin:28px 0 8px}
+input[type=range]{width:100%;accent-color:#fff;cursor:pointer}
+.time-row{display:flex;justify-content:space-between;color:var(--muted);font-size:.78rem;font-variant-numeric:tabular-nums;margin-top:5px}
+.controls{display:flex;align-items:center;justify-content:center;gap:clamp(13px,4vw,30px);margin:25px 0 24px}
+.controls .icon-btn{width:46px;height:46px}.controls .main-play{width:94px;height:94px;border-radius:50%;background:linear-gradient(145deg,rgba(255,255,255,.25),rgba(255,255,255,.08));border:1px solid rgba(255,255,255,.32);box-shadow:inset 0 1px 0 rgba(255,255,255,.3),0 10px 30px rgba(12,8,35,.2)}
+.main-play svg{width:34px;height:34px;fill:currentColor;stroke:none}
+.tools{display:flex;align-items:center;justify-content:space-around;gap:10px;padding:10px 14px;margin:10px 0 22px;border:1px solid var(--line);border-radius:30px;background:rgba(255,255,255,.1);box-shadow:inset 0 1px 0 rgba(255,255,255,.14);backdrop-filter:blur(18px)}
+.tools .icon-btn{width:45px;height:45px}
+.volume{display:flex;align-items:center;gap:12px;margin-top:14px;color:rgba(255,255,255,.9)}
+.volume svg{width:21px;height:21px;flex:none;fill:currentColor;stroke:none}
+.volume input{flex:1}
+.status{text-align:center;min-height:20px;margin-top:13px;color:var(--muted);font-size:.78rem}
+.playlist{display:none;margin-top:22px;padding:16px;border-radius:20px;border:1px solid var(--line);background:rgba(255,255,255,.09);max-height:230px;overflow:auto}
+.playlist.open{display:block}.playlist h3{font-size:.85rem;font-weight:600;margin:0 0 10px;color:var(--muted)}
+.playlist button{display:flex;width:100%;justify-content:space-between;text-align:left;border:0;border-radius:10px;padding:10px;background:transparent;color:var(--fg);cursor:pointer}
+.playlist button:hover,.playlist button.current{background:rgba(255,255,255,.14)}
+.playlist small{color:var(--muted)}
+.footer{text-align:center;color:rgba(255,255,255,.52);font-size:.72rem;line-height:1.6;margin:26px 0 0}
+body.light{color-scheme:light;--fg:#282044;--muted:rgba(40,32,68,.62);--line:rgba(55,40,90,.2);background:#e9e5f6}
+body.light:before{background:radial-gradient(ellipse at 18% 18%,#c3b6f0 0,transparent 38%),radial-gradient(ellipse at 82% 25%,#f2b9d9 0,transparent 34%),radial-gradient(ellipse at 45% 75%,#a9c3e8 0,transparent 42%),linear-gradient(135deg,#e9e4f7,#f6ddeb 52%,#dce8f7)}
+body.light:after{background:radial-gradient(ellipse at 50% 45%,transparent 20%,#fff 100%);opacity:.35}
+body.light .app{background:linear-gradient(145deg,rgba(255,255,255,.58),rgba(255,255,255,.26));border-color:rgba(255,255,255,.8);box-shadow:0 30px 90px rgba(70,50,110,.16),inset 0 1px 0 #fff}
+body.light .topbar .label,body.light .icon-btn,body.light .volume{color:#30254d}
+body.light select{color:#30254d;background:rgba(255,255,255,.55)}body.light select option{background:#fff;color:#30254d}
+body.light .tools{background:rgba(255,255,255,.42)}body.light .tools .icon-btn{color:#30254d}
+body.light .controls .main-play{background:rgba(255,255,255,.5);color:#30254d}
+body.light .footer{color:rgba(40,32,68,.55)}
+@media(max-width:520px){body{padding:0;display:block}.app{min-height:100svh;width:100%;border-radius:0;border-left:0;border-right:0;padding:24px 20px 30px}.topbar{margin-bottom:22px}.cover{border-radius:24px}.controls{gap:9px}.controls .icon-btn{width:40px;height:40px}.controls .main-play{width:78px;height:78px}.tools{margin-top:8px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{scroll-behavior:auto!important;transition:none!important}}
+</style>
+</head>
+<body>
+<div class="app">
+  <div class="topbar">
+    <button class="icon-btn" id="collapseBtn" aria-label="Scroll to player" title="Player"><svg viewBox="0 0 24 24"><path d="m5 9 7 7 7-7"/></svg></button>
+    <div class="label">Now Playing</div>
+    <button class="icon-btn" id="themeBtn" aria-label="Switch to light mode" title="Toggle light and dark mode"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="4"/><path d="M12 2v2m0 16v2M4.93 4.93l1.42 1.42m11.3 11.3 1.42 1.42M2 12h2m16 0h2M4.93 19.07l1.42-1.42m11.3-11.3 1.42-1.42"/></svg></button>
+  </div>
+  <div class="brand"><div class="brand-mark"><span>۞</span> Mishary Quran</div></div>
+  <div class="cover" aria-label="Decorative Quran-inspired artwork">
+    <div class="cover-glow"></div><div class="arch"></div><div class="cover-caption">The Noble Quran</div>
+    <button class="heart" id="favoriteBtn" aria-label="Save this recitation" title="Save current Surah"><svg viewBox="0 0 24 24"><path d="M20.8 8.7c0 5-8.8 10.1-8.8 10.1S3.2 13.7 3.2 8.7A4.5 4.5 0 0 1 12 6.4a4.5 4.5 0 0 1 8.8 2.3Z"/></svg></button>
+  </div>
+  <section class="track-info">
+    <h1 id="surahTitle">Al-Fatihah</h1>
+    <p class="reciter">Mishary Rashid Alafasy</p>
+    <div class="arabic-name" id="surahArabic" lang="ar" dir="rtl">سُورَةُ الْفَاتِحَة</div>
+  </section>
+  <div class="selector-wrap">
+    <label class="select-shell"><select id="surahSelect" aria-label="Choose Surah"></select></label>
+    <label class="select-shell"><select id="ayahSelect" aria-label="Choose Ayah"></select></label>
+  </div>
+  <audio id="audio" preload="metadata"></audio>
+  <div class="progress-area">
+    <input id="seek" type="range" min="0" max="1000" value="0" aria-label="Audio progress">
+    <div class="time-row"><span id="elapsed">0:00</span><span id="duration">--:--</span></div>
+  </div>
+  <div class="controls">
+    <button class="icon-btn" id="shuffleBtn" aria-label="Play a random Surah" title="Random Surah"><svg viewBox="0 0 24 24"><path d="m16 3 4 4-4 4M4 7h2.5c4 0 5 10 9 10H20m-4 4 4-4-4-4M4 17h2.5c1.4 0 2.4-1.3 3.3-3"/></svg></button>
+    <button class="icon-btn" id="previousBtn" aria-label="Previous ayah" title="Previous ayah"><svg viewBox="0 0 24 24"><path d="M6 5v14M19 5 8 12l11 7z"/></svg></button>
+    <button class="icon-btn main-play" id="playBtn" aria-label="Play" title="Play"><svg id="playIcon" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="icon-btn" id="nextBtn" aria-label="Next ayah" title="Next ayah"><svg viewBox="0 0 24 24"><path d="M18 5v14M5 5l11 7-11 7z"/></svg></button>
+    <button class="icon-btn" id="repeatBtn" aria-label="Repeat current ayah" title="Repeat current ayah"><svg viewBox="0 0 24 24"><path d="m17 2 4 4-4 4M3 11V9a3 3 0 0 1 3-3h15M7 22l-4-4 4-4m14-1v2a3 3 0 0 1-3 3H3"/></svg></button>
+  </div>
+  <div class="tools">
+    <button class="icon-btn" id="playlistBtn" aria-label="Toggle Surah list" title="Surah list"><svg viewBox="0 0 24 24"><path d="M4 6h12M4 11h12M4 16h8M19 14v7l-3-1.8-3 1.8v-7z"/></svg></button>
+    <button class="icon-btn" id="randomBtn" aria-label="Random recitation" title="Surprise me"><svg viewBox="0 0 24 24"><path d="M4 19V5m0 14h3l4-6 3 4 6-9m-4 0h4v4"/></svg></button>
+    <button class="icon-btn" id="volumeFocusBtn" aria-label="Focus volume control" title="Volume"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3Zm13-2a7 7 0 0 1 0 10m2-13a11 11 0 0 1 0 16"/></svg></button>
+    <button class="icon-btn" id="settingsBtn" aria-label="Playback settings" title="Playback settings"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.4 2.4-1.7-.6a8 8 0 0 1-1.5.9l-.3 1.8h-2.8l-.3-1.8a8 8 0 0 1-1.5-.9l-1.7.6-1.4-2.4 1.4-1.1a7 7 0 0 1 0-1.8l-1.4-1.1 1.4-2.4 1.7.6a8 8 0 0 1 1.5-.9l.3-1.8h2.8l.3 1.8a8 8 0 0 1 1.5.9l1.7-.6 1.4 2.4-1.4 1.1a7 7 0 0 1 0 1.8Z" transform="translate(-1 -1) scale(1.08)"/></svg></button>
+  </div>
+  <div class="volume" id="volumeArea">
+    <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3Zm13-2a7 7 0 0 1 0 10m2-13a11 11 0 0 1 0 16"/></svg>
+    <input id="volume" type="range" min="0" max="1" step=".01" value=".75" aria-label="Volume">
+    <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 4V5L7 9H3Zm13-2a7 7 0 0 1 0 10m2-13a11 11 0 0 1 0 16"/></svg>
+  </div>
+  <div class="status" id="status" role="status" aria-live="polite">Ready to listen</div>
+  <div class="playlist" id="playlist"><h3>CHOOSE A SURAH</h3><div id="playlistItems"></div></div>
+  <p class="footer">A peaceful listening space dedicated to the recitations of<br><strong>Sheikh Mishary Rashid Alafasy</strong><br>Independent fan-made project · Audio streamed from EveryAyah</p>
+</div>
+<script>
+const surahs = [
+
+["Al-Fatihah","الفاتحة",7],["Al-Baqarah","البقرة",286],["Ali 'Imran","آل عمران",200],["An-Nisa","النساء",176],["Al-Ma'idah","المائدة",120],["Al-An'am","الأنعام",165],["Al-A'raf","الأعراف",206],["Al-Anfal","الأنفال",75],["At-Tawbah","التوبة",129],["Yunus","يونس",109],["Hud","هود",123],["Yusuf","يوسف",111],["Ar-Ra'd","الرعد",43],["Ibrahim","إبراهيم",52],["Al-Hijr","الحجر",99],["An-Nahl","النحل",128],["Al-Isra","الإسراء",111],["Al-Kahf","الكهف",110],["Maryam","مريم",98],["Ta-Ha","طه",135],["Al-Anbiya","الأنبياء",112],["Al-Hajj","الحج",78],["Al-Mu'minun","المؤمنون",118],["An-Nur","النور",64],["Al-Furqan","الفرقان",77],["Ash-Shu'ara","الشعراء",227],["An-Naml","النمل",93],["Al-Qasas","القصص",88],["Al-Ankabut","العنكبوت",69],["Ar-Rum","الروم",60],["Luqman","لقمان",34],["As-Sajdah","السجدة",30],["Al-Ahzab","الأحزاب",73],["Saba","سبأ",54],["Fatir","فاطر",45],["Ya-Sin","يس",83],["As-Saffat","الصافات",182],["Sad","ص",88],["Az-Zumar","الزمر",75],["Ghafir","غافر",85],["Fussilat","فصلت",54],["Ash-Shura","الشورى",53],["Az-Zukhruf","الزخرف",89],["Ad-Dukhan","الدخان",59],["Al-Jathiyah","الجاثية",37],["Al-Ahqaf","الأحقاف",35],["Muhammad","محمد",38],["Al-Fath","الفتح",29],["Al-Hujurat","الحجرات",18],["Qaf","ق",45],["Adh-Dhariyat","الذاريات",60],["At-Tur","الطور",49],["An-Najm","النجم",62],["Al-Qamar","القمر",55],["Ar-Rahman","الرحمن",78],["Al-Waqi'ah","الواقعة",96],["Al-Hadid","الحديد",29],["Al-Mujadilah","المجادلة",22],["Al-Hashr","الحشر",24],["Al-Mumtahanah","الممتحنة",13],["As-Saff","الصف",14],["Al-Jumu'ah","الجمعة",11],["Al-Munafiqun","المنافقون",11],["At-Taghabun","التغابن",18],["At-Talaq","الطلاق",12],["At-Tahrim","التحريم",12],["Al-Mulk","الملك",30],["Al-Qalam","القلم",52],["Al-Haqqah","الحاقة",52],["Al-Ma'arij","المعارج",44],["Nuh","نوح",28],["Al-Jinn","الجن",28],["Al-Muzzammil","المزمل",20],["Al-Muddaththir","المدثر",56],["Al-Qiyamah","القيامة",40],["Al-Insan","الإنسان",31],["Al-Mursalat","المرسلات",50],["An-Naba","النبأ",40],["An-Nazi'at","النازعات",46],["Abasa","عبس",42],["At-Takwir","التكوير",29],["Al-Infitar","الإنفطار",19],["Al-Mutaffifin","المطففين",36],["Al-Inshiqaq","الإنشقاق",25],["Al-Buruj","البروج",22],["At-Tariq","الطارق",17],["Al-A'la","الأعلى",19],["Al-Ghashiyah","الغاشية",26],["Al-Fajr","الفجر",30],["Al-Balad","البلد",20],["Ash-Shams","الشمس",15],["Al-Layl","الليل",21],["Ad-Duha","الضحى",11],["Ash-Sharh","الشرح",8],["At-Tin","التين",8],["Al-Alaq","العلق",19],["Al-Qadr","القدر",5],["Al-Bayyinah","البينة",8],["Az-Zalzalah","الزلزلة",8],["Al-Adiyat","العاديات",11],["Al-Qari'ah","القارعة",11],["At-Takathur","التكاثر",8],["Al-Asr","العصر",3],["Al-Humazah","الهمزة",9],["Al-Fil","الفيل",5],["Quraysh","قريش",4],["Al-Ma'un","الماعون",7],["Al-Kawthar","الكوثر",3],["Al-Kafirun","الكافرون",6],["An-Nasr","النصر",3],["Al-Masad","المسد",5],["Al-Ikhlas","الإخلاص",4],["Al-Falaq","الفلق",5],["An-Nas","الناس",6]
+];
+const $=id=>document.getElementById(id);
+const audio=$('audio'),surahSelect=$('surahSelect'),ayahSelect=$('ayahSelect');
+let surah=1,ayah=1,repeat=false,sequence=true,dragging=false;
+const pad=n=>String(n).padStart(3,'0');
+const format=t=>{if(!Number.isFinite(t))return '--:--';const m=Math.floor(t/60),s=Math.floor(t%60);return `${m}:${String(s).padStart(2,'0')}`};
+function setStatus(message){$('status').textContent=message}
+function buildSurahOptions(){
+ surahs.forEach((s,i)=>{const o=document.createElement('option');o.value=i+1;o.textContent=`${String(i+1).padStart(3,'0')} · ${s[0]}`;surahSelect.append(o)});
+}
+function buildAyahOptions(){
+ ayahSelect.replaceChildren();
+ for(let i=1;i<=surahs[surah-1][2];i++){const o=document.createElement('option');o.value=i;o.textContent=`Ayah ${i}`;ayahSelect.append(o)}
+ ayahSelect.value=ayah;
+}
+function renderTrack(){
+ const s=surahs[surah-1];
+ $('surahTitle').textContent=s[0];$('surahArabic').textContent='سُورَةُ '+s[1];
+ surahSelect.value=surah;buildAyahOptions();
+ $('seek').value=0;$('elapsed').textContent='0:00';$('duration').textContent='--:--';
+}
+function loadAyah(autoplay=false){
+ renderTrack();
+ const url=`https://everyayah.com/data/Alafasy_128kbps/${pad(surah)}${pad(ayah)}.mp3`;
+ audio.src=url;audio.load();
+ setStatus(`Surah ${surah} · Ayah ${ayah}`);
+ if(autoplay)playAudio();
+}
+async function playAudio(){
+ try{await audio.play();setStatus(`Playing ${surahs[surah-1][0]} · Ayah ${ayah}`)}
+ catch(e){setStatus('Playback could not start. Check your connection and try again.')}
+}
+function move(step,autoplay=true){
+ let next=ayah+step;
+ if(next<1){if(surah===1){next=1}else{surah--;next=surahs[surah-1][2]}}
+ else if(next>surahs[surah-1][2]){if(surah===114){next=surahs[surah-1][2]}else{surah++;next=1}}
+ ayah=next;loadAyah(autoplay);
+}
+function togglePlay(){
+ if(audio.paused){playAudio()}else{audio.pause()}
+}
+function updatePlayIcon(){
+ $('playIcon').innerHTML=audio.paused?'<path d="M8 5v14l11-7z"/>':'<path d="M6 5h4v14H6zM14 5h4v14h-4z"/>';
+ $('playBtn').setAttribute('aria-label',audio.paused?'Play':'Pause');
+}
+function randomSurah(){surah=Math.floor(Math.random()*114)+1;ayah=Math.floor(Math.random()*surahs[surah-1][2])+1;loadAyah(true)}
+buildSurahOptions();loadAyah(false);audio.volume=.75;
+surahSelect.addEventListener('change',()=>{surah=Number(surahSelect.value);ayah=1;loadAyah(false)});
+ayahSelect.addEventListener('change',()=>{ayah=Number(ayahSelect.value);loadAyah(false)});
+$('playBtn').addEventListener('click',togglePlay);
+$('previousBtn').addEventListener('click',()=>move(-1));
+$('nextBtn').addEventListener('click',()=>move(1));
+$('playBtn').addEventListener('keydown',e=>{if(e.key===' '){e.preventDefault();togglePlay()}});
+$('repeatBtn').addEventListener('click',()=>{repeat=!repeat;$('repeatBtn').classList.toggle('active',repeat);setStatus(repeat?'Repeat current ayah is on':'Repeat current ayah is off')});
+$('shuffleBtn').addEventListener('click',randomSurah);$('randomBtn').addEventListener('click',randomSurah);
+audio.addEventListener('play',updatePlayIcon);audio.addEventListener('pause',updatePlayIcon);
+audio.addEventListener('loadedmetadata',()=>{$('duration').textContent=format(audio.duration)});
+audio.addEventListener('timeupdate',()=>{if(!dragging&&Number.isFinite(audio.duration)&&audio.duration>0)$('seek').value=audio.currentTime/audio.duration*1000;$('elapsed').textContent=format(audio.currentTime)});
+audio.addEventListener('ended',()=>{if(repeat){audio.currentTime=0;playAudio()}else if(sequence){move(1,true)}else{setStatus('Recitation finished')}});
+audio.addEventListener('error',()=>{setStatus('Audio unavailable right now. Please check your internet connection or try another ayah.')});
+$('seek').addEventListener('input',()=>{dragging=true;if(Number.isFinite(audio.duration))$('elapsed').textContent=format(Number($('seek').value)/1000*audio.duration)});
+$('seek').addEventListener('change',()=>{if(Number.isFinite(audio.duration))audio.currentTime=Number($('seek').value)/1000*audio.duration;dragging=false});
+$('volume').addEventListener('input',()=>{audio.volume=Number($('volume').value);audio.muted=audio.volume===0});
+$('favoriteBtn').addEventListener('click',()=>{const key='mishary-favorites';let list=[];try{list=JSON.parse(localStorage.getItem(key)||'[]')}catch(e){}const id=surah;if(list.includes(id))list=list.filter(x=>x!==id);else list.push(id);try{localStorage.setItem(key,JSON.stringify(list))}catch(e){}$('favoriteBtn').classList.toggle('saved',list.includes(id));$('favoriteBtn').setAttribute('aria-label',list.includes(id)?'Remove saved Surah':'Save this recitation');setStatus(list.includes(id)?'Surah saved to favourites':'Removed from favourites')});
+function refreshFavorite(){let list=[];try{list=JSON.parse(localStorage.getItem('mishary-favorites')||'[]')}catch(e){}$('favoriteBtn').classList.toggle('saved',list.includes(surah))}
+$('playlistBtn').addEventListener('click',()=>{$('playlist').classList.toggle('open')});
+const list=$('playlistItems');
+surahs.forEach((s,i)=>{const b=document.createElement('button');b.innerHTML=`<span>${String(i+1).padStart(3,'0')} · ${s[0]}</span><small>${s[2]} ayahs</small>`;b.addEventListener('click',()=>{surah=i+1;ayah=1;loadAyah(false);$('playlist').classList.remove('open')});list.append(b)});
+$('themeBtn').addEventListener('click',()=>{document.body.classList.toggle('light');const light=document.body.classList.contains('light');$('themeBtn').setAttribute('aria-label',light?'Switch to dark mode':'Switch to light mode');try{localStorage.setItem('mishary-theme',light?'light':'dark')}catch(e){}});
+try{if(localStorage.getItem('mishary-theme')==='light')document.body.classList.add('light')}catch(e){}
+$('settingsBtn').addEventListener('click',()=>{sequence=!sequence; $('settingsBtn').classList.toggle('active',!sequence);setStatus(sequence?'Continuous ayah playback enabled':'Continuous ayah playback paused after each ayah')});
+$('volumeFocusBtn').addEventListener('click',()=>$('volume').focus());
+$('collapseBtn').addEventListener('click',()=>window.scrollTo({top:0,behavior:'smooth'}));
+audio.addEventListener('loadeddata',refreshFavorite);
+refreshFavorite();updatePlayIcon();
+</script>
+</body>
+</html>
